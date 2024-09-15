@@ -18,5 +18,5 @@ export const ExploreTopBooks = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
