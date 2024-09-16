@@ -1,6 +1,7 @@
 package com.backend.config;
 
 import com.backend.entity.Book;
+import com.backend.entity.Review;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
@@ -15,9 +16,12 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
     @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
         HttpMethod[] theUnsupportedActions = {HttpMethod.PUT, HttpMethod.POST, HttpMethod.DELETE};
+
         config.exposeIdsFor(Book.class);
+        config.exposeIdsFor(Review.class);
 
         disableHttpMethods(Book.class, config, theUnsupportedActions);
+        disableHttpMethods(Review.class, config, theUnsupportedActions);
 
         /* Configure CORS mapping */
         cors.addMapping(config.getBasePath() + "/**").allowedOrigins(theAllowedOrigins);
