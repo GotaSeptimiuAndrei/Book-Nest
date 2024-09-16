@@ -4,14 +4,25 @@ import { Navbar } from "./layouts/Navbar"
 import { Footer } from "./layouts/Footer"
 import { HomePage } from "./layouts/homePage/HomePage"
 import { SearchBooksPage } from "./layouts/searchBooksPage/SearchBooksPage"
+import { Redirect, Route, Switch } from "react-router-dom"
 
 export const App = () => {
   return (
-    <>
+    <div className="d-flex flex-column min-vh-100">
       <Navbar />
-      {/* <HomePage /> */}
-      <SearchBooksPage />
+      <div className="flex-grow-1">
+        <Switch>
+          <Route path="/" exact>
+            <Redirect to="/home" />
+          </Route>
+
+          <Route path="/home" component={HomePage} />
+
+          <Route path="/search" component={SearchBooksPage} />
+        </Switch>
+      </div>
+
       <Footer />
-    </>
+    </div>
   )
 }
