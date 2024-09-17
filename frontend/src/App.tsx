@@ -1,31 +1,59 @@
-import React from "react"
 import "./App.css"
 import { Navbar } from "./layouts/Navbar"
 import { Footer } from "./layouts/Footer"
 import { HomePage } from "./layouts/homePage/HomePage"
 import { SearchBooksPage } from "./layouts/searchBooksPage/SearchBooksPage"
-import { Redirect, Route, Switch } from "react-router-dom"
+import { Redirect, Route, Switch, useHistory } from "react-router-dom"
 import { BookCheckoutPage } from "./layouts/bookCheckoutPage/BookCheckoutPage"
+import { oktaConfig } from "./lib/oktaConfig"
+import { OktaAuth, toRelativeUrl } from "@okta/okta-auth-js"
+import { Security, LoginCallback } from "@okta/okta-react"
+import LoginWidget from "./auth/LoginWidget"
+
+const oktaAuth = new OktaAuth(oktaConfig)
 
 export const App = () => {
+  const customAuthHandler = () => {
+    history.push("/login")
+  }
+
+  const history = useHistory()
+
+  const restoreOriginalUri = async (_oktaAuth: any, originalUri: any) => {
+    history.replace(toRelativeUrl(originalUri || "/", window.location.origin))
+  }
+
   return (
     <div className="d-flex flex-column min-vh-100">
-      <Navbar />
-      <div className="flex-grow-1">
-        <Switch>
-          <Route path="/" exact>
-            <Redirect to="/home" />
-          </Route>
+      <Security
+        oktaAuth={oktaAuth}
+        restoreOriginalUri={restoreOriginalUri}
+        onAuthRequired={customAuthHandler}
+      >
+        <Navbar />
+        <div className="flex-grow-1">
+          <Switch>
+            <Route path="/" exact>
+              <Redirect to="/home" />
+            </Route>
 
-          <Route path="/home" component={HomePage} />
+            <Route path="/home" component={HomePage} />
 
-          <Route path="/search" component={SearchBooksPage} />
+            <Route path="/search" component={SearchBooksPage} />
 
-          <Route path="/checkout/:bookId" component={BookCheckoutPage} />
-        </Switch>
-      </div>
+            <Route path="/checkout/:bookId" component={BookCheckoutPage} />
 
-      <Footer />
+            <Route
+              path="/login"
+              render={() => <LoginWidget config={oktaConfig} />}
+            />
+
+            <Route path="/login/callback" component={LoginCallback} />
+          </Switch>
+        </div>
+
+        <Footer />
+      </Security>
     </div>
   )
 }
