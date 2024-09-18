@@ -62,7 +62,7 @@ export const Navbar = () => {
                   className="btn btn-outline-light"
                   onClick={handleLogout}
                 >
-                  Sing out
+                  Sign out
                 </button>
               </li>
             )}
