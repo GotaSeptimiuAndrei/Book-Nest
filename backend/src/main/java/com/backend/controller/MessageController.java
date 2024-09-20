@@ -1,6 +1,7 @@
 package com.backend.controller;
 
 import com.backend.entity.Message;
+import com.backend.requestModels.AdminQuestionRequest;
 import com.backend.service.MessageService;
 import com.backend.utils.ExtractJWT;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,5 +22,15 @@ public class MessageController {
     public void postMessage(@RequestHeader(value="Authorization") String token, @RequestBody Message messageRequest) {
         String userEmail = ExtractJWT.payloadJWTExtraction(token, "\"sub\"");
         messageService.postMessage(messageRequest, userEmail);
+    }
+
+    @PutMapping("/secure/admin/message")
+    public void putMessage(@RequestHeader(value="Authorization") String token, @RequestBody AdminQuestionRequest adminQuestionRequest) throws Exception {
+        String userEmail = ExtractJWT.payloadJWTExtraction(token, "\"sub\"");
+        String admin = ExtractJWT.payloadJWTExtraction(token, "\"userType\"");
+        if (admin == null || !admin.equals("admin")) {
+            throw new Exception("Administrator access only");
+        }
+        messageService.putMessage(adminQuestionRequest, userEmail);
     }
 }
