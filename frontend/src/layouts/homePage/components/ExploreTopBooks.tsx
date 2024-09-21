@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom"
+import image2 from "./../../../Images/PublicImages/image-2.jpg"
 
 export const ExploreTopBooks = () => {
   return (
-    <div className="p-5 mb-4 bg-dark header">
+    <div
+      className="p-5 mb-4 bg-dark"
+      style={{ backgroundImage: `url(${image2})` }}
+    >
       <div
         className="container-fluid py-5 text-white 
                 d-flex justify-content-center align-items-center"

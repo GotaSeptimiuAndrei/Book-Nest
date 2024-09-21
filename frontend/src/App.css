@@ -2,13 +2,6 @@
   --mainOpacity: rgba(0, 0, 0, 0.55);
 }
 
-.header {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url("./Images/PublicImages/image-2.jpg");
-  opacity: var(--mainOpacity);
-  height: 25em !important;
-}
-
 .dark-overlay {
   background-color: rgba(0, 0, 0, 0.35);
   position: absolute;
@@ -52,4 +45,13 @@
 .inactiveLink {
   pointer-events: none;
   cursor: default;
+}
+
+.col-image-left,
+.col-image-right,
+.lost-image {
+  background-size: cover; /* Use 'cover' to fill the container */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* No image repetition */
+  height: 25em !important;
 }
