@@ -1,4 +1,4 @@
-package com.backend.dao;
+package com.backend.repository;
 
 import com.backend.entity.Review;
 import org.springframework.data.domain.Page;

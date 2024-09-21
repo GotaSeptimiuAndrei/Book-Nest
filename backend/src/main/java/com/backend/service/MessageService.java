@@ -1,6 +1,6 @@
 package com.backend.service;
 
-import com.backend.dao.MessageRepository;
+import com.backend.repository.MessageRepository;
 import com.backend.entity.Message;
 import com.backend.requestModels.AdminQuestionRequest;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.backend.dao;
+package com.backend.repository;
 
 import com.backend.entity.Checkout;
 import org.springframework.data.jpa.repository.JpaRepository;

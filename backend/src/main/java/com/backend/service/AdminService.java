@@ -1,8 +1,8 @@
 package com.backend.service;
 
-import com.backend.dao.BookRepository;
-import com.backend.dao.CheckoutRepository;
-import com.backend.dao.ReviewRepository;
+import com.backend.repository.BookRepository;
+import com.backend.repository.CheckoutRepository;
+import com.backend.repository.ReviewRepository;
 import com.backend.entity.Book;
 import com.backend.requestModels.AddBookRequest;
 import org.springframework.beans.factory.annotation.Autowired;

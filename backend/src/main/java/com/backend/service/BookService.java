@@ -1,8 +1,8 @@
 package com.backend.service;
 
-import com.backend.dao.BookRepository;
-import com.backend.dao.CheckoutRepository;
-import com.backend.dao.HistoryRepository;
+import com.backend.repository.BookRepository;
+import com.backend.repository.CheckoutRepository;
+import com.backend.repository.HistoryRepository;
 import com.backend.entity.Book;
 import com.backend.entity.Checkout;
 import com.backend.entity.History;
