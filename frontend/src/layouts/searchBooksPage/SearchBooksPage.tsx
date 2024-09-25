@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import Book from "../../models/Book"
+import { Pagination } from "../utils/Pagination"
 import { SpinnerLoading } from "../utils/SpinnerLoading"
 import { SearchBook } from "./components/SearchBook"
-import { Pagination } from "../utils/Pagination"
 
 export const SearchBooksPage = () => {
   const [books, setBooks] = useState<Book[]>([])
