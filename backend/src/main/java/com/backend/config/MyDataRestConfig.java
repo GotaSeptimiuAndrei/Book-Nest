@@ -12,7 +12,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 @Configuration
 public class MyDataRestConfig implements RepositoryRestConfigurer {
 
-    private String theAllowedOrigins = "http://localhost:3000";
+    private String[] theAllowedOrigins = {"http://localhost:3000", "https://booknestlibrary.netlify.app"};
 
     @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
@@ -26,8 +26,9 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
         disableHttpMethods(Review.class, config, theUnsupportedActions);
         disableHttpMethods(Message.class, config, theUnsupportedActions);
 
-        /* Configure CORS mapping */
-        cors.addMapping(config.getBasePath() + "/**").allowedOrigins(theAllowedOrigins);
+        /* Configure CORS mapping for local and Netlify origins */
+        cors.addMapping(config.getBasePath() + "/**")
+                .allowedOrigins(theAllowedOrigins);
     }
 
     private void disableHttpMethods(Class theClass,
