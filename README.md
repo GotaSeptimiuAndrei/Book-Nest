@@ -2,7 +2,7 @@
 
 Welcome to **BookNest**, a full-stack library management application designed for easy access and management of books. This project uses a modern tech stack to provide seamless functionality for both basic users and admins, including book checkout, reviews, and management features. The app is secured with Okta for authentication and authorization, ensuring secure access for all user roles.
 
-## Link to project: [booknestlibrary.netlify.app](https://booknestlibrary.netlify.app/home)
+## Login Credentials
   - **Basic User Credentials**: testuser@email.com password=test1234!
   - **Admin User Credentiials**: adminuser@email.com password=test1234!
 
@@ -47,10 +47,6 @@ Welcome to **BookNest**, a full-stack library management application designed fo
   
 - **Authentication & Authorization**: 
   - **Okta**: For secure user authentication and role-based access control.
-  
-- **Deployment**: 
-  - **AWS**: backend and database are deployed on AWS
-  - **Netlify**: frontend is deployed on Netlify
 
 
  
