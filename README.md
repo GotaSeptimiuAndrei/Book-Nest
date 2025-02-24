@@ -47,6 +47,12 @@ Welcome to **BookNest**, a full-stack library management application designed fo
   
 - **Authentication & Authorization**: 
   - **Okta**: For secure user authentication and role-based access control.
+ 
+## Videos
+- **User Video**
+  <p align="center"> <img src="https://github.com/GotaSeptimiuAndrei/Book-Nest/blob/main/User%20Video.gif" height="500"/> </p>
+- **Admin Video**
+  <p align="center"> <img src="https://github.com/GotaSeptimiuAndrei/Book-Nest/blob/main/Admin%20Video.gif" height="500"/> </p>
 
 
  
